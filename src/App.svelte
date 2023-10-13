@@ -2,6 +2,7 @@
 	import Nested from './component/Nested.svelte';
   import Grreting from './component/grreting.svelte';
   import Firstcomponent from './component/firstcomponent.svelte';
+  import Event from './component/event.svelte';
   
 // let fname="jay shree ram";
 // let th="hello"
@@ -23,6 +24,8 @@ let sum=0;
 let mul=0;
 let div=0;
 let sub=0;
+
+let array1=["one","two","three","four","five"]
 const calculator=(a)=>{
     if(a=="sc"){
     f1+=1
@@ -41,6 +44,9 @@ const calculator=(a)=>{
     sub=0
     alert(`your table is reset`)
 }
+}
+function eventd(){
+    alert("event dispatcher is called..")
 }
 </script>
 
@@ -75,8 +81,14 @@ const calculator=(a)=>{
     <td>{sub}</td>
 </tr>
 </table>
-</main> 
+{#each array1 as ar1 }
+    <h2>{ar1}</h2>
+{/each}
 
+<!-- events and event dispatcher -->
+<Event on:hi={()=>{eventd()}}/>
+</main> 
+<h2>{eventd}</h2>
 <style>
 	main {
 		text-align: center;
